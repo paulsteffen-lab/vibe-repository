@@ -1,26 +1,15 @@
 [project]
 name = "data-analyst-agent"
 version = "0.1.0"
-description = "Agent analyste de données conversationnel (CSV depuis Google Drive)"
 requires-python = ">=3.12"
-dependencies = [
-    "mistralai-agents==1.1.0",
-]
+dependencies = ["mistralai-agents==1.1.0"]
 
 [dependency-groups]
-dev = [
-    "pytest>=8.0",
-    "pytest-asyncio>=0.24",
-]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.24"]
 
-[tool.uv]
-environments = [
-    "sys_platform == 'linux'",
-]
+[tool.mistralai.agents]
+entrypoint = "main:agent"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = ["."]
-
-[tool.mistralai.agents]
-entrypoint = "main:agent"
